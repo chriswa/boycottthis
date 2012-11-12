@@ -25,7 +25,7 @@
 <?php foreach ($issues as $issue): ?>
   <div>
     <a href="<?php echo $issue['_link'] ?>">
-      <?php echo $issue['pledge_count'] ?> people are boycotting <?php echo htmlspecialchars($issue['organization']) ?>
+      <?php echo $issue['pledge_count'] ?> people are boycotting <?php echo htmlspecialchars($issue['organization:label']) ?>
     </a><br/>
     <?php echo htmlspecialchars($issue['summary']) ?>
     <a href="<?php echo $issue['_link'] ?>">(read more)</a>

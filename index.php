@@ -1,9 +1,15 @@
 <?php
   require_once "_app_init.php";
   
-  $newest  = mysql_select('issues', "hidden = 0 ORDER BY createdDate DESC LIMIT 2");
-  $biggest = mysql_select('issues', "hidden = 0 ORDER BY pledge_count DESC LIMIT 1");
+  $newestIssues = mysql_select('issues', "hidden = 0 ORDER BY createdDate DESC LIMIT 2");
+  dbx_decorate($newestIssues);
+  
+  $biggestIssues = mysql_select('issues', "hidden = 0 ORDER BY pledge_count DESC LIMIT 1");
+  dbx_decorate($biggestIssues);
+  
   $announcements = mysql_select('announcements', "hidden = 0 ORDER BY date DESC LIMIT 1");
+  dbx_decorate($announcements);
+  
 ?>
 
 <?php include "_header.php" ?>
@@ -21,7 +27,7 @@
 
 <div class="column-third">
   New Boycotts<br/>
-  <?php foreach ($newest as $issue): ?>
+  <?php foreach ($newestIssues as $issue): ?>
     <div>
       <?php echo pretty_relative_time($issue['date_posted']) ?><br/>
       <a href="<?php echo $issue['_link'] ?>"><?php echo htmlspecialchars($issue['title']) ?></a>
@@ -31,10 +37,10 @@
 </div>
 
 <div class="column-third">
-  <?php foreach ($newest as $issue): ?>
+  <?php foreach ($newestIssues as $issue): ?>
     <div>
       <a href="<?php echo $issue['_link'] ?>">
-        <?php echo $issue['pledge_count'] ?> people are boycotting <?php echo htmlspecialchars($issue['organization']) ?>
+        <?php echo $issue['pledge_count'] ?> people are boycotting <?php echo htmlspecialchars($issue['organization:label']) ?>
       </a><br/>
       <?php echo htmlspecialchars($issue['summary']) ?>
       <a href="<?php echo $issue['_link'] ?>">(read more)</a>

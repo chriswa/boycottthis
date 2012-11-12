@@ -21,7 +21,7 @@ return array (
   'listPageSearchFields' => '_all_',
   'menuHidden' => '1',
   'menuName' => 'Updates',
-  'menuOrder' => 5,
+  'menuOrder' => 6,
   'menuType' => 'multi',
   'num' => array(
     'order' => 1,

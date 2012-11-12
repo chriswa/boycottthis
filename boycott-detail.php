@@ -19,7 +19,7 @@
   <?php echo $issue['pledge_count'] ?> are boycotting
 </div>
 
-<h1><?php echo htmlspecialchars($issue['organization']) ?></h1>
+<h1><?php echo htmlspecialchars($issue['organization:label']) ?></h1>
 <h2><?php echo htmlspecialchars($issue['title']) ?></h2>
 Posted <?php echo date('F jS Y', strtotime($issue['date_posted'])) ?>
 <?php if ($issue['resolved']): ?>

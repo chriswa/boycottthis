@@ -21,7 +21,7 @@ return array (
   'listPageSearchFields' => 'fullname, username, email',
   'menuHidden' => '0',
   'menuName' => 'Admin Accounts',
-  'menuOrder' => 9,
+  'menuOrder' => 10,
   'menuType' => 'multi',
   'tableHidden' => '0',
   'num' => array(

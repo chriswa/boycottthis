@@ -21,7 +21,7 @@ return array (
   'listPageSearchFields' => '_all_',
   'menuHidden' => '0',
   'menuName' => 'Categories',
-  'menuOrder' => 6,
+  'menuOrder' => 7,
   'menuType' => 'multi',
   'num' => array(
     'order' => '1',

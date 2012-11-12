@@ -1,18 +1,23 @@
+make the search work
 pagination on news.php and boycotts.php
-dbx_decorate results from mysql_select calls so that _link will be available
-my boycotts page (for removing boycotts)
-tally pledges boycotts
-tag pledges with email/subscribe(y/n) after the fact (jquery ui dialog)
-nevermail feature
+buttons
+  - "boycott" increments pledge_count with ajax (returning crypted num), show dialog to tag pledge with email address and optionally subscribe to issue
+  - "subscribe" shows dialog to ask for email address, adds subscription (not pledge!)
+  - "unboycott" shows dialog to ask for email address, emails the secret link to the my boycotts page
 send email with link to unboycott
-send emails to subscribed pledgers when a new update is created in CMS
+send emails to subscribers when a new update is created in CMS
   include secret links to
     my pledges page
     unsubscribe from this issue
     unsubscribe from all issues
-    nevermail?
+nevermail feature
+my boycotts page (for removing boycotts)
+support for users with javascript turned off
 
+login with facebook
+login with twitter
 
+like/share with facebook
 
 sample content for testing
 forms for contact us, suggest an issue, suggest an update (to this issue)

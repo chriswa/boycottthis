@@ -21,7 +21,7 @@ return array (
   'listPageSearchFields' => '_all_',
   'menuHidden' => '1',
   'menuName' => 'Pledges',
-  'menuOrder' => 7,
+  'menuOrder' => 8,
   'menuType' => 'multi',
   'num' => array(
     'order' => '1',
