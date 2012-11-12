@@ -1,6 +1,6 @@
 <?php /* This is a PHP data file */ if (!@$LOADSTRUCT) { die("This is not a program file."); }
 return array (
-  '_detailPage' => '',
+  '_detailPage' => 'boycott-detail.php',
   '_disableAdd' => '0',
   '_disableErase' => '0',
   '_disableModify' => '0',
@@ -21,7 +21,7 @@ return array (
   'listPageSearchFields' => '_all_',
   'menuHidden' => '0',
   'menuName' => 'Issues',
-  'menuOrder' => '3',
+  'menuOrder' => '5',
   'menuType' => 'multi',
   'num' => array(
     'order' => 1,
@@ -54,7 +54,7 @@ return array (
     'isSystemField' => '1',
   ),
   'hidden' => array(
-    'order' => '6',
+    'order' => 6,
     'label' => 'Hidden',
     'type' => 'checkbox',
     'fieldPrefix' => '',
@@ -64,7 +64,7 @@ return array (
     'uncheckedValue' => 'No',
   ),
   'resolved' => array(
-    'order' => '7',
+    'order' => 7,
     'label' => 'Resolved',
     'type' => 'checkbox',
     'fieldPrefix' => '',
@@ -73,8 +73,24 @@ return array (
     'checkedValue' => 'Yes',
     'uncheckedValue' => 'No',
   ),
+  'date_posted' => array(
+    'order' => '8',
+    'label' => 'Date Posted',
+    'type' => 'date',
+    'fieldPrefix' => '',
+    'description' => '',
+    'isRequired' => '0',
+    'isUnique' => '0',
+    'defaultDate' => '',
+    'defaultDateString' => '2012-01-01 00:00:00',
+    'showTime' => '0',
+    'showSeconds' => '0',
+    'use24HourFormat' => '0',
+    'yearRangeStart' => '',
+    'yearRangeEnd' => '',
+  ),
   'organization' => array(
-    'order' => 8,
+    'order' => 9,
     'label' => 'Organization',
     'type' => 'textfield',
     'defaultValue' => '',
@@ -90,7 +106,7 @@ return array (
     'charset' => '',
   ),
   'title' => array(
-    'order' => 9,
+    'order' => 10,
     'label' => 'Title',
     'type' => 'textfield',
     'defaultValue' => '',
@@ -105,7 +121,7 @@ return array (
     'charset' => '',
   ),
   'categories' => array(
-    'order' => 10,
+    'order' => 11,
     'label' => 'Categories',
     'type' => 'list',
     'defaultValue' => '',
@@ -120,7 +136,7 @@ return array (
     'optionsLabelField' => 'title',
   ),
   'summary' => array(
-    'order' => 11,
+    'order' => 12,
     'label' => 'Summary',
     'type' => 'textbox',
     'defaultContent' => '',
@@ -134,7 +150,7 @@ return array (
     'autoFormat' => '1',
   ),
   'content' => array(
-    'order' => 12,
+    'order' => 13,
     'label' => 'Content',
     'type' => 'wysiwyg',
     'defaultContent' => '',
@@ -160,7 +176,7 @@ return array (
     'customUploadUrl' => '',
   ),
   'links' => array(
-    'order' => 13,
+    'order' => 14,
     'label' => 'Links',
     'type' => 'textbox',
     'defaultContent' => '',
@@ -174,7 +190,7 @@ return array (
     'autoFormat' => '1',
   ),
   'pledge_count' => array(
-    'order' => '14',
+    'order' => 15,
     'label' => 'Pledge Count',
     'type' => 'textfield',
     'defaultValue' => '0',
@@ -190,7 +206,7 @@ return array (
     'charset' => '',
   ),
   'date_resolved' => array(
-    'order' => '15',
+    'order' => '16',
     'label' => 'Date Resolved',
     'type' => 'date',
     'fieldPrefix' => '',
@@ -199,14 +215,14 @@ return array (
     'isUnique' => '0',
     'defaultDate' => 'none',
     'defaultDateString' => '2012-01-01 00:00:00',
-    'showTime' => '1',
-    'showSeconds' => '1',
+    'showTime' => '0',
+    'showSeconds' => '0',
     'use24HourFormat' => '0',
     'yearRangeStart' => '',
     'yearRangeEnd' => '',
   ),
   '__relatedRecords001__' => array(
-    'order' => '1352686848',
+    'order' => 17,
     'label' => 'Updates',
     'type' => 'relatedRecords',
     'relatedTable' => 'updates',

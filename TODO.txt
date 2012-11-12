@@ -1,0 +1,3 @@
+pagination on news.php and boycotts.php
+dbx_decorate results from mysql_select calls so that _link will be available
+my boycotts page (for removing boycotts)
