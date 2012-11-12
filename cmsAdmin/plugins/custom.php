@@ -17,7 +17,7 @@ function custom_edit_show_field($retval, $fieldSchema, $record) {
     echo "</td></tr>\n";
     return false;
   }
-  if ($tableName === 'issues' && $fieldName === 'links') {
+  if (($tableName === 'issues' || $tableName === 'updates') && $fieldName === 'links') {
     echo "<tr><td>Links</td><td>";
     custom_showLinksField($record['links']);
     echo "</td></tr>\n";
@@ -40,7 +40,7 @@ function custom_showLinksField($value) {
     <script>
       $(function() {
         var addNewRowIfRequired = function() {
-          if ($('#linkTable tr:last input[value!=""]').length > 0) {
+          if ($('#linkTable tr:visible:last input[value=""]').length < 2) {
             $('#linkTmpl').clone().show().appendTo('#linkTable');
           }
           $('#linkTable button').show();
@@ -61,12 +61,14 @@ function _custom_showLinksField_row($title = '', $url = '') {
 
 addAction('record_presave', 'custom_record_presave', null, 3);
 function custom_record_presave($tableName, $isNewRecord, $oldRecord) {
-  if ($tableName === 'issues') {
+  if ($tableName === 'issues' || $tableName === 'updates') {
     $links  = array();
     $urls   = $_REQUEST['links_url'];
     $titles = $_REQUEST['links_title'];
     for ($i = 1; $i < sizeof($urls) - 1; $i++) {
-      $links[] = array( 'url' => $urls[$i], 'title' => $titles[$i] );
+      $url = $urls[$i];
+      if (!preg_match('#^\w+://#', $url)) { $url = 'http://' . $url; }
+      $links[] = array( 'url' => $url, 'title' => $titles[$i] );
     }
     $_REQUEST['links'] = json_encode($links);
   }

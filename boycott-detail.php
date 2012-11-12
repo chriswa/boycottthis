@@ -45,6 +45,15 @@ Posted <?php echo date('F jS Y', strtotime($issue['date_posted'])) ?>
     UPDATED <?php echo date('F jS Y', strtotime($update['date'])) ?><br/>
     <b><?php echo htmlspecialchars($update['title']) ?></b><br/>
     <?php echo $update['content'] ?>
+    <?php $links = json_decode($update['links'], true); ?>
+    <?php if ($links): ?>
+      <p>
+        <?php foreach ($links as $link): ?>
+          <?php $title = coalesce($link['title'], $link['url']); ?>
+          <a href="<?php echo htmlspecialchars($link['url']) ?>" target="_blank"><?php echo htmlspecialchars($title) ?></a><br/>
+        <?php endforeach ?>
+      </p>
+    <?php endif ?>
   </div>
 <?php endforeach ?>
 
