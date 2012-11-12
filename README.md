@@ -1,0 +1,4 @@
+boycottthis
+===========
+
+Boycott Issue Database
