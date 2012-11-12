@@ -1,7 +1,18 @@
 pagination on news.php and boycotts.php
 dbx_decorate results from mysql_select calls so that _link will be available
 my boycotts page (for removing boycotts)
-CMS UI: issue "links" list
+tally pledges boycotts
+tag pledges with email/subscribe(y/n) after the fact (jquery ui dialog)
+nevermail feature
+send email with link to unboycott
+send emails to subscribed pledgers when a new update is created in CMS
+  include secret links to
+    my pledges page
+    unsubscribe from this issue
+    unsubscribe from all issues
+    nevermail?
+
+
 
 sample content for testing
 forms for contact us, suggest an issue, suggest an update (to this issue)
