@@ -20,8 +20,8 @@ return array (
   'listPageOrder' => 'date DESC',
   'listPageSearchFields' => '_all_',
   'menuHidden' => '0',
-  'menuName' => 'Announcements',
-  'menuOrder' => '4',
+  'menuName' => 'News',
+  'menuOrder' => '2',
   'menuType' => 'multi',
   'num' => array(
     'order' => 1,

@@ -20,8 +20,8 @@ return array (
   'listPageOrder' => 'fullname, username',
   'listPageSearchFields' => 'fullname, username, email',
   'menuHidden' => '0',
-  'menuName' => 'Editors',
-  'menuOrder' => 1,
+  'menuName' => 'Admin Accounts',
+  'menuOrder' => 8,
   'menuType' => 'multi',
   'tableHidden' => '0',
   'num' => array(
