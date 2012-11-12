@@ -1,6 +1,7 @@
 pagination on news.php and boycotts.php
 dbx_decorate results from mysql_select calls so that _link will be available
 my boycotts page (for removing boycotts)
+CMS UI: issue "links" list
 
 sample content for testing
 forms for contact us, suggest an issue, suggest an update (to this issue)

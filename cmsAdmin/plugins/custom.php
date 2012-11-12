@@ -17,14 +17,59 @@ function custom_edit_show_field($retval, $fieldSchema, $record) {
     echo "</td></tr>\n";
     return false;
   }
-  if ($tableName === 'updates' && $fieldName === '') {
-    echo "<tr><td>";
-    echo "</td><td>";
+  if ($tableName === 'issues' && $fieldName === 'links') {
+    echo "<tr><td>Links</td><td>";
+    custom_showLinksField($record['links']);
     echo "</td></tr>\n";
     return false;
   }
   
   return true;
+}
+
+function custom_showLinksField($value) {
+  $rows = coalesce(json_decode($value, true), array());
+  echo '<table id="linkTable">' . "\n";
+  echo "<thead><tr><td>URL</td><td>Title</td></tr></thead>";
+  echo '<tr id="linkTmpl" style="display: none;">' . _custom_showLinksField_row() . "</tr>\n"; // clone target
+  foreach ($rows as $row) {
+    echo '<tr>' . _custom_showLinksField_row($row['title'], $row['url']) . "</tr>\n";
+  }
+  echo "</table>\n";
+  ?>
+    <script>
+      $(function() {
+        var addNewRowIfRequired = function() {
+          if ($('#linkTable tr:last input[value!=""]').length > 0) {
+            $('#linkTmpl').clone().show().appendTo('#linkTable');
+          }
+          $('#linkTable button').show();
+          $('#linkTable tr:last button').hide();
+        }
+        addNewRowIfRequired();
+        $('#linkTable button').live('click', function() { $(this).closest('tr').remove(); addNewRowIfRequired(); return false; });
+        $('#linkTable input').live('change', addNewRowIfRequired);
+      });
+    </script>
+  <?php
+}
+function _custom_showLinksField_row($title = '', $url = '') {
+  return '<td><input name="links_url[]" class="text-input" style="width: 200px;" placeholder="http://example.com/" value="' . htmlspecialchars($url) . '"/></td>'
+  . '<td><input name="links_title[]" class="text-input" style="width: 200px;" placeholder="Link Text (optional)" value="' . htmlspecialchars($title) . '"/></td>'
+  . '<td><button>x</button></td>';
+}
+
+addAction('record_presave', 'custom_record_presave', null, 3);
+function custom_record_presave($tableName, $isNewRecord, $oldRecord) {
+  if ($tableName === 'issues') {
+    $links  = array();
+    $urls   = $_REQUEST['links_url'];
+    $titles = $_REQUEST['links_title'];
+    for ($i = 1; $i < sizeof($urls) - 1; $i++) {
+      $links[] = array( 'url' => $urls[$i], 'title' => $titles[$i] );
+    }
+    $_REQUEST['links'] = json_encode($links);
+  }
 }
 
 addFilter('record_preedit', 'custom_record_preedit', null, 2);
