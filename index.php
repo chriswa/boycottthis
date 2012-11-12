@@ -23,7 +23,7 @@
   New Boycotts<br/>
   <?php foreach ($newest as $issue): ?>
     <div>
-      [DATE AGO]<br/>
+      <?php echo pretty_relative_time($issue['date_posted']) ?><br/>
       <a href="<?php echo $issue['_link'] ?>"><?php echo htmlspecialchars($issue['title']) ?></a>
     </div>
   <?php endforeach ?>
@@ -48,7 +48,8 @@
   <?php foreach ($announcements as $announcement): ?>
     <div>
       <a href="<?php echo $announcement['_link'] ?>"><?php echo htmlspecialchars($announcement['title']) ?></a><br/>
-      [DATE AGO] <?php echo htmlspecialchars($announcement['summary']) ?>
+      <?php echo pretty_relative_time($announcement['date']) ?>
+      <?php echo htmlspecialchars($announcement['summary']) ?>
       <a href="<?php echo $announcement['_link'] ?>">(read more)</a>
     </div>
   <?php endforeach ?>

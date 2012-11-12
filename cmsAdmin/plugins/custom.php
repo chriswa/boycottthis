@@ -5,6 +5,58 @@ Description: Custom code for BoycottThis
 Required System Plugin: Yes
 */
 
+addFilter('edit_show_field', 'custom_edit_show_field', null, 3);
+function custom_edit_show_field($retval, $fieldSchema, $record) {
+  global $tableName;
+  $fieldName = $fieldSchema['name'];
+  
+  if ($tableName === 'updates' && $fieldName === 'issue') {
+    echo "<tr><td>";
+    ?><input type="hidden" name="issue" value="<?php echo coalesce(@$record['issue'], intval(@$_REQUEST['issuesNum'])) ?>"/><?php
+    echo "</td><td>";
+    echo "</td></tr>\n";
+    return false;
+  }
+  if ($tableName === 'updates' && $fieldName === '') {
+    echo "<tr><td>";
+    echo "</td><td>";
+    echo "</td></tr>\n";
+    return false;
+  }
+  
+  return true;
+}
+
+addFilter('record_preedit', 'custom_record_preedit', null, 2);
+function custom_record_preedit($tableName, $recordNum) {
+  global $RECORD;
+  if ($tableName === 'updates') {
+    $issueNum = coalesce(@$RECORD['issue'], @$_REQUEST['issuesNum']);
+    $issue = mysql_get('issues', $issueNum);
+    $RECORD['issue_summary']  = $issue['summary'];
+    $RECORD['issue_resolved'] = $issue['resolved'];
+  }
+}
+
+addAction('record_save_posterrorchecking', 'custom_record_save_posterrorchecking', null, 3);
+function custom_record_save_posterrorchecking($tableName, $recordExists, $oldRecord) {
+  if ($tableName === 'updates') {
+    $issueNum = coalesce(@$oldRecord['issue'], @$_REQUEST['issue']);
+    $issue = mysql_get('issues', $issueNum);
+    $issueChanges = array(
+      'summary'  => @$_REQUEST['issue_summary'],
+      'resolved' => @$_REQUEST['issue_resolved'],
+    );
+    if (@$_REQUEST['issue_resolved'] && !$issue['resolved']) {
+      $issueChanges['date_resolved'] = mysql_datetime();
+    }
+    if (!@$_REQUEST['issue_resolved']) {
+      $issueChanges['date_resolved'] = '0000-00-00 00:00:00';
+    }
+    mysql_update('issues', $issue['num'], null, $issueChanges);
+  }
+}
+
 function pretty_relative_time($time) { 
   if ($time !== intval($time)) { $time = strtotime($time); } 
   $d = time() - $time; 

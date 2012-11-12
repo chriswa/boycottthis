@@ -13,7 +13,7 @@
 <?php include "_header.php" ?>
 
 <h1><?php echo htmlspecialchars($announcement['title']) ?></h1>
-[DATE AGO]<br/>
+<?php echo pretty_relative_time($announcement['date']) ?><br/>
 <?php echo $announcement['content'] ?>
 
 <?php include "_footer.php" ?>

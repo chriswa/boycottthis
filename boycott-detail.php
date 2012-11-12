@@ -13,7 +13,7 @@
 <?php include "_header.php" ?>
 
 <h1><?php echo htmlspecialchars($issue['title']) ?></h1>
-[DATE AGO]<br/>
+<?php echo pretty_relative_time($issue['date_posted']) ?><br/>
 <?php echo $issue['content'] ?><br/>
 
 TODO: suggest update form

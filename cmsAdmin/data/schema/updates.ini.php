@@ -16,12 +16,12 @@ return array (
   '_previewPage' => '',
   '_requiredPlugins' => '',
   '_tableName' => 'updates',
-  'listPageFields' => 'createdDate, issue, title',
-  'listPageOrder' => 'createdDate DESC',
+  'listPageFields' => 'date, title',
+  'listPageOrder' => 'date',
   'listPageSearchFields' => '_all_',
-  'menuHidden' => '0',
+  'menuHidden' => '1',
   'menuName' => 'Updates',
-  'menuOrder' => 6,
+  'menuOrder' => '6',
   'menuType' => 'multi',
   'num' => array(
     'order' => 1,
@@ -68,8 +68,24 @@ return array (
     'optionsValueField' => 'num',
     'optionsLabelField' => 'title',
   ),
+  'date' => array(
+    'order' => '7',
+    'label' => 'Date',
+    'type' => 'date',
+    'fieldPrefix' => '',
+    'description' => '',
+    'isRequired' => '0',
+    'isUnique' => '0',
+    'defaultDate' => '',
+    'defaultDateString' => '2012-01-01 00:00:00',
+    'showTime' => '1',
+    'showSeconds' => '0',
+    'use24HourFormat' => '0',
+    'yearRangeStart' => '',
+    'yearRangeEnd' => '',
+  ),
   'title' => array(
-    'order' => 7,
+    'order' => 8,
     'label' => 'Title',
     'type' => 'textfield',
     'defaultValue' => '',
@@ -84,7 +100,7 @@ return array (
     'charset' => '',
   ),
   'content' => array(
-    'order' => 8,
+    'order' => 9,
     'label' => 'Content',
     'type' => 'wysiwyg',
     'defaultContent' => '',
@@ -108,6 +124,45 @@ return array (
     'useCustomUploadDir' => '0',
     'customUploadDir' => '',
     'customUploadUrl' => '',
+  ),
+  '__separator001__' => array(
+    'order' => '10',
+    'label' => '',
+    'type' => 'separator',
+    'separatorType' => 'html',
+    'separatorHeader' => '',
+    'separatorHTML' => '<tr>
+ <td colspan=\'2\'>
+  <br/>
+  <b>Also change this Issue\'s Summary and/or Resolved status?</b>
+  <br/>
+  <br/>
+ </td>
+</tr>',
+  ),
+  'issue_summary' => array(
+    'order' => 11,
+    'label' => 'Issue Summary',
+    'type' => 'textbox',
+    'defaultContent' => '',
+    'fieldPrefix' => '',
+    'description' => '',
+    'isRequired' => '0',
+    'isUnique' => '0',
+    'minLength' => '',
+    'maxLength' => '',
+    'fieldHeight' => '',
+    'autoFormat' => '1',
+  ),
+  'issue_resolved' => array(
+    'order' => '12',
+    'label' => 'Issue Resolved',
+    'type' => 'checkbox',
+    'fieldPrefix' => '',
+    'checkedByDefault' => '0',
+    'description' => 'This Issue is no longer being boycotted',
+    'checkedValue' => 'Yes',
+    'uncheckedValue' => 'No',
   ),
 );
 ?>
