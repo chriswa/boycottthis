@@ -17,10 +17,13 @@
     <?php echo htmlspecialchars($announcement['summary']) ?>
     <a href="<?php echo $announcement['_link'] ?>">(read more)</a>
   </div>
+  <br/>
 <?php endforeach ?>
 
-<?php if ($meta['prevPage']): ?><a href="<?php echo $meta['prevPageLink'] ?>">&lt;&lt; prev</a><?php else: ?>&lt;&lt; prev<?php endif ?>
-- page <?php echo $meta['page'] ?> of <?php echo $meta['totalPages'] ?> -
-<?php if ($meta['nextPage']): ?><a href="<?php echo $meta['nextPageLink'] ?>">next &gt;&gt;</a><?php else: ?>next &gt;&gt;<?php endif ?>
+<?php if ($meta['totalPages'] > 1): ?>
+  <?php if ($meta['prevPage']): ?><a href="<?php echo $meta['prevPageLink'] ?>">&lt;&lt; prev</a><?php else: ?>&lt;&lt; prev<?php endif ?>
+  - page <?php echo $meta['page'] ?> of <?php echo $meta['totalPages'] ?> -
+  <?php if ($meta['nextPage']): ?><a href="<?php echo $meta['nextPageLink'] ?>">next &gt;&gt;</a><?php else: ?>next &gt;&gt;<?php endif ?>
+<?php endif ?>
 
 <?php include "_footer.php" ?>

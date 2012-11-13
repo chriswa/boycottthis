@@ -15,8 +15,8 @@
 <?php include "_header.php" ?>
 
 <div style="margin: 50px;">
-  <form action="search.php" method="POST">
-    <input type="text" name="query" value="<?php echo htmlspecialchars(@$_REQUEST['query']) ?>" />
+  <form action="boycotts.php" method="POST">
+    Search: <input type="text" name="query" value="<?php echo htmlspecialchars(@$_REQUEST['query']) ?>" />
     <input type="submit" value="Go" />
   </form>
 </div>

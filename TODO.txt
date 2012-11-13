@@ -1,4 +1,3 @@
-make the search work
 buttons
   - "boycott" increments pledge_count with ajax (returning crypted num), show dialog to tag pledge with email address and optionally subscribe to issue
   - "subscribe" shows dialog to ask for email address, adds subscription (not pledge!)
