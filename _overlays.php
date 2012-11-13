@@ -6,11 +6,14 @@
   Thanks!<br/>
   We've added your pledge to our count!<br/>
   <br/>
-  <form action="?" method="POST">
+  <form action="add-boycott.php" method="POST">
+    <input type="hidden" name="boycott-overlay" value="1"/>
+    <input type="hidden" name="uniq" value=""/>
     <input type="hidden" name="pledgeNum" value=""/>
+    <input type="hidden" name="issue" value=""/>
     <input name="email" placeholder="email address"/><br/>
     <br/>
-    <label><input type="checkbox" name="issue_subscribe" value="1" checked="checked"/>Send me updates on this issue!</label><br/>
+    <label><input type="checkbox" name="subscribed" value="1" checked="checked"/>Send me updates on this issue!</label><br/>
   </form>
 </div>
 

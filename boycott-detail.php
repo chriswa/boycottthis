@@ -15,8 +15,8 @@
 <?php include "_header.php" ?>
 
 <div style="float: right;">
-  <button class="boycott-button" data-issue="<?php echo $issue['num'] ?>">JOIN!!</button>
-  <?php echo $issue['pledge_count'] ?> are boycotting
+  <button class="boycott-button" data-issue="<?php echo $issue['num'] ?>" data-organization="<?php echo $issue['organization'] ?>" data-uniq="<?php echo uniqid() ?>">JOIN!!</button>
+  <span class="pledge-count" data-issue="<?php echo $issue['num'] ?>"><?php echo $issue['pledge_count'] ?></span> are boycotting
 </div>
 
 <h1><?php echo htmlspecialchars($issue['organization:label']) ?></h1>

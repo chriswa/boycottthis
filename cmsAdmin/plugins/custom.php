@@ -5,6 +5,29 @@ Description: Custom code for BoycottThis
 Required System Plugin: Yes
 */
 
+// Emails
+// ======
+
+// $member = createMember(array('email' => @$_REQUEST['email']));
+function createMember($member) {
+  $member = array_merge($member, array( 'uniq' => uniqid() ));
+  $member = dbx_createAndSave('members', $member);
+  sendMemberEmail('WELCOME', $member);
+  return $member;
+}
+
+function sendMemberEmail($templateId, $member) {
+  // TODO
+  /*
+  $emailHeaders = emailTemplate_loadFromDB(array(
+    'template_id'      => $templateId,
+    'placeholders'     => $placeholders,
+  ));
+  $errors       = sendMessage($emailHeaders);
+  if ($errors) { alert("Mail Error: $errors"); }
+  */
+}
+
 // Issues/Organizations Relationship
 // =================================
 
