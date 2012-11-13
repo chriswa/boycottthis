@@ -1,4 +1,7 @@
 cmsAdmin/
 
+# hide our shame
+_php_error.log
+
 # cruft from Zoe's IDE
 .project
