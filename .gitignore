@@ -1,4 +1,10 @@
-cmsAdmin/
+# Exclude the CMS
+cmsAdmin/*
+
+# ...but include the DB backups folder.
+!cmsAdmin/data
+cmsAdmin/data/*
+!cmsAdmin/data/backups
 
 # hide our shame
 _php_error.log
